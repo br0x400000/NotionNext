@@ -2,7 +2,7 @@
  * 站点统计插件
  */
 module.exports = {
-  ANALYTICS_VERCEL: process.env.NEXT_PUBLIC_ANALYTICS_VERCEL || false, // vercel自带的统计 https://vercel.com/docs/concepts/analytics/quickstart https://github.com/notionnext-org/NotionNext/issues/897
+  ANALYTICS_VERCEL: process.env.NEXT_PUBLIC_ANALYTICS_VERCEL || false, // Vercel Web Analytics - Set to true to enable. See https://vercel.com/docs/analytics/quickstart
   ANALYTICS_BUSUANZI_ENABLE:
     process.env.NEXT_PUBLIC_ANALYTICS_BUSUANZI_ENABLE || true, // 展示网站阅读量、访问数
   // 不蒜子 / 兼容实现的脚本地址，官方 busuanzi.ibruce.info 自 2024 年起
