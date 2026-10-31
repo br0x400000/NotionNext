@@ -1,25 +1,76 @@
-/**
- * 0x400000 technical documentation navigation.
- * Keep curated links independent from NotionNext template Menu/SubMenu samples.
- */
-const CATEGORY_LINKS = [
-  { id: 'llvm', name: 'LLVM Backend', href: '/category/LLVM%20Backend', icon: 'fas fa-code-branch' },
-  { id: 'gpu', name: 'GPU Compiler', href: '/category/GPU%20Compiler', icon: 'fas fa-microchip' },
-  { id: 'analysis', name: 'Program Analysis', href: '/category/Program%20Analysis', icon: 'fas fa-diagram-project' },
-  { id: 'systems', name: 'Systems', href: '/category/Systems', icon: 'fas fa-terminal' }
-]
+import { siteConfig } from '@/lib/config'
+import CONFIG from '../config'
 
-export function getClaudeMenuLinks() {
-  return [
-    { id: 'home', name: '首页', href: '/', icon: 'fas fa-house' },
-    { id: 'articles', name: '全部文章', href: '/archive', icon: 'fas fa-book-open' },
+const normalizeSubMenus = subMenus =>
+  (Array.isArray(subMenus) ? subMenus : [])
+    .map((item, index) => {
+      if (!item) return null
+      return {
+        id: item.id || `sub-${index}`,
+        name: item.name || item.title || item.label || '',
+        href: item.href || item.url || '',
+        target: item.target,
+        icon: item.icon
+      }
+    })
+    .filter(item => item && item.name && item.href)
+
+const normalizeMenu = links =>
+  (Array.isArray(links) ? links : [])
+    .map((link, index) => {
+      if (!link) return null
+      const subMenus = normalizeSubMenus(link.subMenus || link.children)
+      return {
+        ...link,
+        id: link.id ?? `menu-${index}`,
+        name: link.name || link.title || link.label || '',
+        href: link.href || link.url || '',
+        subMenus
+      }
+    })
+    .filter(link => {
+      if (!link || link.show === false) return false
+      const subs = link.subMenus?.length > 0
+      return Boolean(link.href) || subs
+    })
+
+/**
+ * Claude 侧栏 / 移动导航菜单（支持 subMenus / children 二级项）
+ * 与 fuwari / Notion CUSTOM_MENU 结构对齐
+ */
+export function getClaudeMenuLinks({ locale, customNav, customMenu }) {
+  let links = [
     {
-      id: 'topics',
-      name: '技术栏目',
-      icon: 'fas fa-layer-group',
-      subMenus: CATEGORY_LINKS
+      icon: 'fas fa-archive',
+      name: locale.NAV.ARCHIVE,
+      href: '/archive',
+      show: siteConfig('CLAUDE_MENU_ARCHIVE', null, CONFIG)
     },
-    { id: 'search', name: '搜索', href: '/search', icon: 'fas fa-magnifying-glass' },
-    { id: 'about', name: '关于本站', href: '/about', icon: 'fas fa-circle-info' }
+    {
+      icon: 'fas fa-folder',
+      name: locale.COMMON.CATEGORY,
+      href: '/category',
+      show: siteConfig('CLAUDE_MENU_CATEGORY', null, CONFIG)
+    },
+    {
+      icon: 'fas fa-tag',
+      name: locale.COMMON.TAGS,
+      href: '/tag',
+      show: siteConfig('CLAUDE_MENU_TAG', null, CONFIG)
+    }
   ]
+
+  if (Array.isArray(customNav) && customNav.length > 0) {
+    links = links.concat(customNav)
+  }
+
+  if (
+    siteConfig('CUSTOM_MENU') &&
+    Array.isArray(customMenu) &&
+    customMenu.length > 0
+  ) {
+    links = customMenu
+  }
+
+  return normalizeMenu(links)
 }

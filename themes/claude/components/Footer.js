@@ -3,20 +3,26 @@ import AnalyticsBusuanzi from '@/components/AnalyticsBusuanzi'
 import DarkModeButton from './DarkModeButton'
 import CONFIG from '../config'
 
-export default function Footer() {
-  const year = new Date().getFullYear()
+/**
+ * 页脚 — 紧凑风格
+ */
+export default function Footer(props) {
+  const d = new Date()
+  const currentYear = d.getFullYear()
   const since = siteConfig('SINCE')
   const customCopyright = siteConfig('CLAUDE_FOOTER_COPYRIGHT', '', CONFIG)
-  const copyrightDate = parseInt(since, 10) < year ? since + '-' + year : year
+  const copyrightDate =
+    parseInt(since) < currentYear ? since + '-' + currentYear : currentYear
 
   return (
     <footer className='claude-footer'>
       <DarkModeButton className='mb-3' />
-      <div className='mb-2'>技术认真写，饭也认真吃 <span aria-hidden='true'>🍚</span></div>
       <div>
         {customCopyright || `© ${copyrightDate} ${siteConfig('AUTHOR')}`}
       </div>
-      <div className='mt-2 flex justify-center'><AnalyticsBusuanzi /></div>
+      <div className='mt-2 flex justify-center'>
+        <AnalyticsBusuanzi />
+      </div>
     </footer>
   )
 }
