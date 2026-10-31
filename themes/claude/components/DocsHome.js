@@ -68,16 +68,16 @@ export default function DocsHome({ posts = [] }) {
           </h1>
           <div className='max-w-[650px] space-y-3 text-[15px] sm:text-base leading-8' style={{ color: 'var(--claude-text-secondary)' }}>
             <p>
-              这里是 0x400000，一个慢慢积攒技术笔记的小站。
+              这里是 <strong>0x400000</strong>，一个慢慢积攒技术笔记的小站。
             </p>
             <p>
-              平时主要和 LLVM 后端、GPU 编译器打交道，也曾研究过程序分析、
-              Sanitizer、区块链和分布式系统。喜欢在源码里翻来翻去，
-              顺着问题一点点寻找答案。这里会记下读源码的心得、实践中踩过的坑，
-              还有那些偶尔冒出来的「原来如此」。
+              平时主要和 LLVM 后端、GPU 编译器打交道，也曾研究过程序分析、区块链。
+              喜欢在源码里翻来翻去，顺着问题一点点寻找答案。
+              这里会记下读源码的心得、实践中踩过的坑，还有那些偶尔冒出来的「原来如此」。
             </p>
             <p>
-              代码之外，也是一个干饭人 <span aria-label='米饭'>🍚</span>
+              希望文章能讲清楚问题，也保留一点普通人的生活气息。
+              毕竟，代码之外，我也是一个干饭人 <span aria-label='米饭'>🍚</span>
             </p>
           </div>
 
