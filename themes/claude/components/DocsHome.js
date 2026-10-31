@@ -57,7 +57,7 @@ export default function DocsHome({ posts = [] }) {
               backgroundColor: 'var(--claude-bg)'
             }}
           >
-            <span aria-hidden='true'>🌱</span> Mira 的小站 · 0x400000
+            <span aria-hidden='true'>🌱</span> 0x400000 · 一点代码，一点生活
           </div>
 
           <h1
@@ -68,12 +68,16 @@ export default function DocsHome({ posts = [] }) {
           </h1>
           <div className='max-w-[650px] space-y-3 text-[15px] sm:text-base leading-8' style={{ color: 'var(--claude-text-secondary)' }}>
             <p>
-              我是 Mira，平时和 LLVM 后端、GPU 编译器打交道，也喜欢在源码里翻来翻去。
-              这里记一些技术笔记、踩坑经历，还有偶尔冒出来的「原来如此」。
+              这里是 0x400000，一个慢慢积攒技术笔记的小站。
             </p>
             <p>
-              希望文章能讲清楚问题，也保留一点普通人的生活气息。
-              毕竟，代码之外，我也是一个干饭人 <span aria-label='米饭'>🍚</span>
+              平时主要和 LLVM 后端、GPU 编译器打交道，也曾研究过程序分析、
+              Sanitizer、区块链和分布式系统。喜欢在源码里翻来翻去，
+              顺着问题一点点寻找答案。这里会记下读源码的心得、实践中踩过的坑，
+              还有那些偶尔冒出来的「原来如此」。
+            </p>
+            <p>
+              代码之外，也是一个干饭人 <span aria-label='米饭'>🍚</span>
             </p>
           </div>
 
