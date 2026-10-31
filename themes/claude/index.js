@@ -12,7 +12,7 @@ import BlogPostBar from './components/BlogPostBar'
 import CONFIG from './config'
 import { Style } from './style'
 import Catalog from './components/Catalog'
-import ProfileHome from './components/ProfileHome'
+import DocsHome from './components/DocsHome'
 
 const AlgoliaSearchModal = dynamic(
   () => import('@/components/AlgoliaSearchModal'),
@@ -132,7 +132,7 @@ const LayoutBase = props => {
           <div className='flex-1 overflow-hidden flex justify-center'>
             <div
               id='container-inner'
-              className='w-full max-w-3xl lg:max-w-4xl xl:max-w-5xl 2xl:max-w-6xl px-5 md:px-8 overflow-y-auto scroll-hidden'
+              className='w-full max-w-5xl px-5 md:px-8 overflow-y-auto scroll-hidden'
               style={{ height: '100%' }}>
 
               {/* 移动端导航 */}
@@ -184,7 +184,7 @@ const LayoutBase = props => {
  * 博客首页
  */
 const LayoutIndex = props => {
-  return <ProfileHome {...props} />
+  return <DocsHome {...props} />
 }
 
 /**
