@@ -21,6 +21,7 @@ export function getClaudeMenuLinks() {
       subMenus: CATEGORY_LINKS
     },
     { id: 'search', name: '搜索', href: '/search', icon: 'fas fa-magnifying-glass' },
+    { id: 'friends', name: '友情链接', href: '/article/links', icon: 'fas fa-link' },
     { id: 'about', name: '关于本站', href: '/about', icon: 'fas fa-circle-info' }
   ]
 }
