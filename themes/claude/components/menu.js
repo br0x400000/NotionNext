@@ -13,13 +13,13 @@ const CATEGORY_LINKS = [
 export function getClaudeMenuLinks() {
   return [
     { id: 'home', name: '首页', href: '/', icon: 'fas fa-house' },
-    { id: 'articles', name: '全部文章', href: '/archive', icon: 'fas fa-book-open' },
     {
       id: 'topics',
       name: '技术栏目',
       icon: 'fas fa-layer-group',
       subMenus: CATEGORY_LINKS
     },
+    { id: 'articles', name: '全部文章', href: '/archive', icon: 'fas fa-book-open' },
     { id: 'search', name: '搜索', href: '/search', icon: 'fas fa-magnifying-glass' },
     { id: 'friends', name: '友情链接', href: '/article/links', icon: 'fas fa-link' },
     { id: 'about', name: '关于本站', href: '/about', icon: 'fas fa-circle-info' }
