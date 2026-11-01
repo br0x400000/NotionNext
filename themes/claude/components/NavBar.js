@@ -1,11 +1,8 @@
 import SmartLink from '@/components/SmartLink'
-import { siteConfig } from '@/lib/config'
 import { MenuList } from './MenuList'
 
 /** Friendly, compact personal sidebar with documentation navigation. */
 export default function NavBar(props) {
-  const authorName = (siteConfig('AUTHOR') || 'Mira').split('/')[0].trim()
-
   return (
     <div className='flex flex-col'>
       <SmartLink href='/' className='block no-underline'>
@@ -19,10 +16,7 @@ export default function NavBar(props) {
 
       <div className='mt-5 rounded-xl border px-4 py-3'
            style={{ borderColor: 'var(--claude-border)', backgroundColor: 'var(--claude-bg-secondary)' }}>
-        <div className='text-sm font-semibold' style={{ color: 'var(--claude-text-primary)' }}>
-          {authorName}
-        </div>
-        <p className='mt-1 text-xs leading-5' style={{ color: 'var(--claude-text-secondary)' }}>
+        <p className='text-xs leading-5' style={{ color: 'var(--claude-text-secondary)' }}>
           LLVM / GPU Compiler Engineer
         </p>
       </div>
