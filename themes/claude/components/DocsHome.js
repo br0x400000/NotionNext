@@ -49,23 +49,6 @@ export default function DocsHome({ posts = [] }) {
         }}
       >
         <div className='relative z-10'>
-          <div
-            className='inline-flex items-center gap-2 rounded-full border px-3 py-1.5 text-xs font-medium mb-7'
-            style={{
-              borderColor: 'var(--claude-border)',
-              color: 'var(--claude-accent)',
-              backgroundColor: 'var(--claude-bg)'
-            }}
-          >
-            <span aria-hidden='true'>🌱</span> 0x400000 · 一点代码，一点生活
-          </div>
-
-          <h1
-            className='text-3xl sm:text-4xl md:text-5xl font-semibold leading-tight tracking-tight mb-6'
-            style={{ color: 'var(--claude-text-primary)' }}
-          >
-            嗨，欢迎来坐坐 <span aria-hidden='true'>👋</span>
-          </h1>
           <div className='max-w-[650px] space-y-3 text-[15px] sm:text-base leading-8' style={{ color: 'var(--claude-text-secondary)' }}>
             <p>
               这里是 <strong>0x400000</strong>，一个慢慢积攒技术笔记的小站。
@@ -77,7 +60,6 @@ export default function DocsHome({ posts = [] }) {
             </p>
             <p>
               希望文章能讲清楚问题，也保留一点普通人的生活气息。
-              毕竟，代码之外，我也是一个干饭人 <span aria-label='米饭'>🍚</span>
             </p>
           </div>
 
