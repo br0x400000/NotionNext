@@ -49,17 +49,6 @@ export default function DocsHome({ posts = [] }) {
         }}
       >
         <div className='relative z-10'>
-          <div
-            className='inline-flex items-center gap-2 rounded-full border px-3 py-1.5 text-xs font-medium mb-7'
-            style={{
-              borderColor: 'var(--claude-border)',
-              color: 'var(--claude-accent)',
-              backgroundColor: 'var(--claude-bg)'
-            }}
-          >
-            <span aria-hidden='true'>🌱</span> 0x400000 · 一点代码，一点生活
-          </div>
-
           <div className='max-w-[650px] space-y-3 text-[15px] sm:text-base leading-8' style={{ color: 'var(--claude-text-secondary)' }}>
             <p>
               这里是 <strong>0x400000</strong>，一个慢慢积攒技术笔记的小站。
